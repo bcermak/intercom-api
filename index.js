@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express().use(bodyParser.json());
@@ -183,7 +184,7 @@ app.post('/', (req, res) => {
     let updatedAt = req.body.data.item.updated_at + 172800;
 
     if (rating == 5) {
-      sdk.auth('dG9rOmUyMTA4M2Y4XzU4ZWRfNGNkYl9hN2ZiXzFjNzlkNmVkNGNlZDoxOjA=');
+      sdk.auth(`${process.env.KEY}`);
       sdk.server('https://api.intercom.io');
       sdk.replyConversation({
         message_type: 'comment',

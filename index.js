@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express().use(bodyParser.json());
+const sdk = require('api')('@intercom-api-reference/v2.9#v67gwo2lhkg10ra');
 
 // data for all admins to use within API calls
 const teamAdmins = {
@@ -182,8 +183,6 @@ app.post('/', (req, res) => {
     let updatedAt = req.body.data.item.updated_at + 172800;
 
     if (rating == 5) {
-      const sdk = require('api')('@intercom-api-reference/v2.9#v67gwo2lhkg10ra');
-
       sdk.auth('dG9rOmUyMTA4M2Y4XzU4ZWRfNGNkYl9hN2ZiXzFjNzlkNmVkNGNlZDoxOjA=');
       sdk.server('https://api.intercom.io');
       sdk.replyConversation({
@@ -196,9 +195,6 @@ app.post('/', (req, res) => {
         'intercom-version': '2.9'
       })
         .then(() => {
-  
-          sdk.auth('dG9rOmUyMTA4M2Y4XzU4ZWRfNGNkYl9hN2ZiXzFjNzlkNmVkNGNlZDoxOjA=');
-          sdk.server('https://api.intercom.io');
           sdk.manageConversation({
             message_type: 'close',
             type: 'admin',

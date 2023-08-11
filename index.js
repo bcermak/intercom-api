@@ -316,19 +316,18 @@ app.post('/', (req, res) => {
         id: conversationID,
         'intercom-version': '2.9'
       })
-        .then(()=> {
-
+        .then(() => {
+  
           sdk.auth('dG9rOmUyMTA4M2Y4XzU4ZWRfNGNkYl9hN2ZiXzFjNzlkNmVkNGNlZDoxOjA=');
           sdk.server('https://api.intercom.io');
           sdk.manageConversation({
-            message_type: 'snoozed',
+            message_type: 'close',
             type: 'admin',
-            admin_id: '4660381',
-            snoozed_until: updatedAt
+            admin_id: '4660381'
           }, {id: conversationID, 'intercom-version': '2.9'})
             .then(({ data }) => console.log(data))
             .catch(err => console.error(err));
-                  })
+        })
     } else {
       console.log("Rating is not good")
     }

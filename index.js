@@ -8,39 +8,6 @@ const teamAdmins = {
   "admins": [
     {
       "type": "admin",
-      "email": "bill@smile.io",
-      "id": "46571",
-      "name": "Bill Curtis",
-      "away_mode_enabled": true,
-      "away_mode_reassign": true,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
-    },
-    {
-      "type": "admin",
-      "email": "mike@smile.io",
-      "id": "46962",
-      "name": "Mike Rossi",
-      "away_mode_enabled": true,
-      "away_mode_reassign": true,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
-    },
-    {
-      "type": "admin",
-      "email": "katrina@smile.io",
-      "id": "1246186",
-      "name": "Katrina",
-      "away_mode_enabled": true,
-      "away_mode_reassign": true,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
-    },
-    {
-      "type": "admin",
       "email": "maggie@smile.io",
       "id": "1314872",
       "name": "Maggie",
@@ -63,66 +30,11 @@ const teamAdmins = {
     },
     {
       "type": "admin",
-      "email": "tess@smile.io",
-      "id": "3982666",
-      "name": "Tess",
-      "away_mode_enabled": true,
-      "away_mode_reassign": true,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
-    },
-    {
-      "type": "admin",
       "email": "lynn@smile.io",
       "id": "4121991",
       "name": "Lynn Penaloza",
       "away_mode_enabled": true,
       "away_mode_reassign": true,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
-    },
-    {
-      "type": "admin",
-      "email": "sarahf@smile.io",
-      "id": "4122070",
-      "name": "Sarah Facini",
-      "away_mode_enabled": true,
-      "away_mode_reassign": true,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
-    },
-    {
-      "type": "admin",
-      "email": "infrastructure@smile.io",
-      "id": "4148511",
-      "name": "Smile SRE Team",
-      "away_mode_enabled": true,
-      "away_mode_reassign": true,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
-    },
-    {
-      "type": "admin",
-      "email": "systems@smile.io",
-      "id": "4172216",
-      "name": "Support Team",
-      "away_mode_enabled": false,
-      "away_mode_reassign": false,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
-    },
-    {
-      "type": "admin",
-      "email": "tim@smile.io",
-      "id": "4235432",
-      "name": "Tim Peckover",
-      "away_mode_enabled": true,
-      "away_mode_reassign": false,
       "has_inbox_seat": true,
       "team_ids": [],
       "team_priority_level": {}
@@ -206,17 +118,6 @@ const teamAdmins = {
     },
     {
       "type": "admin",
-      "email": "mitchell@smile.io",
-      "id": "5391852",
-      "name": "Mitchell Curry",
-      "away_mode_enabled": false,
-      "away_mode_reassign": false,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
-    },
-    {
-      "type": "admin",
       "email": "andreandanafitriah@smile.io",
       "id": "5427534",
       "name": "Andreandana Fitriah",
@@ -261,17 +162,6 @@ const teamAdmins = {
     },
     {
       "type": "admin",
-      "email": "social@smile.io",
-      "id": "5603938",
-      "name": "Smile Marketing Team",
-      "away_mode_enabled": true,
-      "away_mode_reassign": false,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
-    },
-    {
-      "type": "admin",
       "email": "angela.thompson@smile.io",
       "id": "6590114",
       "name": "Angie T",
@@ -280,21 +170,10 @@ const teamAdmins = {
       "has_inbox_seat": true,
       "team_ids": [],
       "team_priority_level": {}
-    },
-    {
-      "type": "admin",
-      "email": "christian.bullock@smile.io",
-      "id": "6679008",
-      "name": "Christian Bullock",
-      "away_mode_enabled": false,
-      "away_mode_reassign": false,
-      "has_inbox_seat": true,
-      "team_ids": [],
-      "team_priority_level": {}
     }
   ]
 }
-// receiving webhook notification from Intercom to identify admin (MXie) and rating
+// receiving webhook notification from Intercom
 app.post('/', (req, res) => {
 
     let authorID = JSON.stringify(req.body.data.item.conversation_rating.teammate.id);
@@ -331,7 +210,6 @@ app.post('/', (req, res) => {
     } else {
       console.log("Rating is not good")
     }
-
 });
 
 

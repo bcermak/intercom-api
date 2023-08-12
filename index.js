@@ -178,10 +178,11 @@ const teamAdmins = {
 // receiving webhook notification from Intercom
 app.post('/', (req, res) => {
 
-    let authorID = JSON.stringify(req.body.data.item.conversation_rating.teammate.id);
+    let adminID = JSON.stringify(req.body.data.item.conversation_rating.teammate.id);
     let conversationID = req.body.data.item.id;
     let rating = req.body.data.item.conversation_rating.rating;
-    let updatedAt = req.body.data.item.updated_at + 172800;
+
+    console.log(adminID);
 
     if (rating == 5) {
       sdk.auth(`${process.env.KEY}`);

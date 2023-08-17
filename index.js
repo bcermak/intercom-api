@@ -10,7 +10,40 @@ const teamAdmins = [
       name: "Brandon", id: 4660381
     },
     {
+      name: "Maggie", id: 1314872
+    },
+    {
       name: "Jade", id: 5018703
+    },
+    {
+      name: "Lynn", id: 4121991
+    },
+    {
+      name: "Joana", id: 4334203
+    },
+    {
+      name: "Mackenzie", id: 4583295
+    },
+    {
+      name: "Ezra", id: 4656470
+    },
+    {
+      name: "David", id: 5222292
+    },
+    {
+      name: "Andrea", id: 5427534
+    },
+    {
+      name: "Nicole", id: 5430357
+    },
+    {
+      name: "Hannah", id: 5542987
+    },
+    {
+      name: "Lisa", id: 5553917
+    },
+    {
+      name: "Angie", id: 6590114
     }
   ]
 
@@ -21,16 +54,17 @@ app.post('/', (req, res) => {
     let adminID = parseInt(req.body.data.item.conversation_rating.teammate.id);
     let conversationID = req.body.data.item.id;
     let rating = req.body.data.item.conversation_rating.rating;
-
-    const filtered = teamAdmins.filter(function(value){
+    
+    // match name from the list of admins
+    let filtered = teamAdmins.filter(function(value){
       return value.id === adminID
     })
-  
-    let getName = {...filtered[0]}
-  
-    let replyName = getName.name
 
-    console.log(replyName)
+    // turn array into object
+    let filteredName = {...filtered[0]}
+  
+    // pull out just the name
+    let replyName = filteredName.name
 
     if (rating == 5) {
       sdk.auth(`${process.env.KEY}`);

@@ -38,7 +38,7 @@ app.post('/', (req, res) => {
       sdk.replyConversation({
         message_type: 'comment',
         type: 'admin',
-        body: 'We are so glad to hear you enjoyed your support experience with' + replyName + '🤩 <br><br> Would you mind sharing with everone in the app store by <a href="https://resources.smile.io/review"> leaving a quick review? </a>',
+        body: 'We are so glad to hear you enjoyed your support experience with ' + replyName + '🤩 <br><br> Would you mind sharing with everone in the app store by <a href="https://resources.smile.io/review"> leaving a quick review? </a>',
         admin_id: '4660381'
       }, {
         id: conversationID,

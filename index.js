@@ -58,9 +58,7 @@ app.post('/', (req, res) => {
     res.sendStatus(200);
 
     // match name from the list of admins
-    let filtered = teamAdmins.filter(function(value){
-      return value.id === adminID
-    })
+    let filtered = teamAdmins.filter((value) => {return value.id === adminID})
 
     // turn array into object
     let filteredName = {...filtered[0]}
@@ -74,8 +72,8 @@ app.post('/', (req, res) => {
       sdk.replyConversation({
         message_type: 'comment',
         type: 'admin',
-        body: 'We are so glad to hear you enjoyed your support experience with ' + replyName + '🤩 <br><br> Would you mind sharing with everone in the app store by <a href="https://resources.smile.io/review"> leaving a quick review? </a>',
-        admin_id: '4660381'
+        body: 'We are so glad to hear you enjoyed your support experience with ' + replyName + ' 🤩 <br><br> Would you mind sharing with everone in the app store by <a href="https://resources.smile.io/review"> leaving a quick review? </a>',
+        admin_id: '5216745'
       }, {
         id: conversationID,
         'intercom-version': '2.9'
@@ -84,7 +82,7 @@ app.post('/', (req, res) => {
           sdk.manageConversation({
             message_type: 'close',
             type: 'admin',
-            admin_id: '4660381'
+            admin_id: '5216745'
           }, {id: conversationID, 'intercom-version': '2.9'})
             .then(({ data }) => console.log(data))
             .catch(err => console.error(err));

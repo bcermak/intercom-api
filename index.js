@@ -55,6 +55,8 @@ app.post('/', (req, res) => {
     let conversationID = req.body.data.item.id;
     let rating = req.body.data.item.conversation_rating.rating;
     
+    res.sendStatus(200);
+
     // match name from the list of admins
     let filtered = teamAdmins.filter(function(value){
       return value.id === adminID
